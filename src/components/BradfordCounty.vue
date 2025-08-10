@@ -17,7 +17,7 @@ const {
   // Course data
   const courses: Course[] = [
     {
-      id: 'emanon-country-club',
+      id: 'towanda-country-club',
       name: 'Towanda Country Club',
       image: '/imgs/towandaCcLogo.png',
       rating: '4.1/5',

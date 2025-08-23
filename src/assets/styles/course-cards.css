@@ -104,7 +104,8 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1; /* Takes up available space */
-    padding-bottom: 48px; /* Space for fixed button */
+    padding-bottom: 56px; /* Space for fixed button */
+    position: relative;
   }
   
   .course-image {
@@ -123,6 +124,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: flex-start;
   }
   
   .course-title {
@@ -136,8 +138,8 @@
   .quick-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: .75rem;
-    margin: 0 auto 1rem;
+    gap: .5rem;
+    margin: 0 auto .5rem;
   }
   
   .info-item {
@@ -169,7 +171,7 @@
   /* Toggle Button - Fixed to Bottom */
   .toggle-details {
     position: absolute;
-    bottom: 8px;
+    bottom: 17px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 2.5rem);

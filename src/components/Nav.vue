@@ -1,28 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-// @ts-ignore
 import imageMapResize from 'image-map-resizer'
 
-// Define the type for the new list of counties
-type CountyView = 'bradford' | 'susquehanna' | 'wayne' | 'sullivan' | 'wyoming' | 'lackawanna' | 'pike' | 'luzerne' | 'monroe' | 'carbon' | 'schuylkill';
-
 const emit = defineEmits<{
-  (e: 'switch-view', view: CountyView): void
+  (e: 'switch-view', view: 'bradford' | 'susquehanna' | 'wayne' | 'sullivan' | 'wyoming' | 'lackawanna' | 'pike' | 'luzerne' | 'monroe' | 'carbon' | 'schuylkill'): void
 }>()
 
-// Set the initial view to the first county in your list
-const currentView = ref<CountyView>('wyoming')
+const currentView = ref<'bradford' | 'susquehanna' | 'wayne' | 'sullivan' | 'wyoming' | 'lackawanna' | 'pike' | 'luzerne' | 'monroe' | 'carbon' | 'schuylkill'>('wyoming')
 const fading = ref(false)
 const showMap = ref(true)
 
-const setView = (view: CountyView) => {
+const setView = (view: typeof currentView.value) => {
   if (currentView.value !== view) {
     fading.value = true
     setTimeout(() => {
       currentView.value = view
       emit('switch-view', view)
       fading.value = false
-      showMap.value = false // This will hide the map and show the 'View Map' button
+      showMap.value = false
     }, 300)
   }
 }
@@ -31,7 +26,6 @@ const openMap = () => {
   showMap.value = true
 }
 
-// Ensure the image map is responsive
 onMounted(() => {
   imageMapResize()
 })
@@ -72,7 +66,8 @@ watch(showMap, (visible) => {
             src="/imgs/NepaBlackBordersFinal.png"
             usemap="#image-map"
             alt="NEPA County Map"
-            class="w-full max-w-4xl mx-auto rounded-lg" />
+            class="w-full max-w-4xl mx-auto rounded-lg transition-filter duration-300"
+            :style="{ filter: `var(--map-filter, '')` }" />
           <p class="text-white text-md mt-2 mb-4 italic">
             Click a county to view their public golf courses
           </p>
@@ -106,7 +101,7 @@ watch(showMap, (visible) => {
 
 <style scoped>
 nav {
-  /* background-color: var(--color-nav-bg); You can set your desired background color here */
+  /* /* background-color: var(--color-nav-bg); */
   border-bottom: 2px solid white;
 }
 .county-map-container {

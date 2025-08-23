@@ -171,53 +171,20 @@ const {
       googlePlaceId: 'ChIJUVq6tsvQxIkRJrlU5YCP13A',
       courseLength: '1983 yards'
     },
-
-    // NEED RATE INFO FB MESSAGE SENT
-
-    // {
-    //   id: 'marjon-golf-course',
-    //   name: 'Marjon Golf Course',
-    //   image: '/imgs/shadowbrookLogo.png',
-    //   rating: '4.4/5',
-    //   ratingLink: 'https://www.google.com/search?sca_esv=7d0b40d4ccf1baac&sxsrf=AE3TifPGECsprGp3_PvNU7YT1JY3ki8_lg:1754439048381&q=marjon+golf+course&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s66HmVztU-bLS7T28Le65YOxdLrdiT1iOOB-IWeVd79hILrnQyp3lSnpacawn_N89-A7VW3gwUn0m8O9Ilj7GLzvnwu78S4KE1exS0Vntfyb7FhXBg%3D%3D&sa=X&ved=2ahUKEwix5Iji8vSOAxVPEVkFHd_CB0AQrrQLegQIHBAA',
-    //   address: '1360 Griffin Rd, Roaring Brook Township, PA 18444',
-    //   town: 'Roaring Brrok Twp',
-    //   holes9: {
-    //     weekday: {
-    //       General: { walking: '$20', cart: '$28', notes: 'All Day' }
-    //     },
-    //     weekend: {
-    //       General: { walking: '$26', cart: '$34', notes: 'All Day' },
-    //     },
-    //     senior: {
-    //       weekday: { walking: '$18', cart: '$26', notes: 'After 10am' },
-    //       weekend: { walking: '$24', cart: '$30', notes: 'After 2pm' }
-    //     },
-    //   },
-    //   holes18: {
-    //       weekday: {
-    //       General: { walking: '$28', cart: '$38', notes: 'Open-3pm' },
-    //       Twilight: { cart: '$28', notes: 'After 3pm'  }
-    //     },
-    //     weekend: {
-    //       General: { walking: '$32', cart: '$46', notes: 'Open-3pm' },
-    //       Twilight: { cart: '$36', notes: 'After 3pm'  }
-    //     },
-    //     senior: {
-    //       weekday: { walking: '$24', cart: '$34', notes: 'All Day' },
-    //       weekend: { walking: '$30', cart: '$42', notes: 'All Day' }
-    //     },
-    //     junior: {
-    //       weekday: { walking: '$24', cart: '$44', notes: 'After 10am' },
-    //       weekend: { walking: '$24', cart: '$44', notes: 'After 2pm' }
-    //     },
-    //   },
-    //   GeneralNotes: '9 Hole Course',
-    //   website: 'https://www.facebook.com/profile.php?id=100066500558894#',
-    //   phoneNumber: '(570) 842-7922',
-    //   googlePlaceId: 'ChIJL8KOWE7DxIkRYgZaat0wDQM',
-    //   courseLength: '2691 yards'
-    // },
+    {
+      id: 'marjon-golf-course',
+      name: 'Marjon Golf Course',
+      image: '/imgs/marjonGolfLogo.png',
+      rating: '4.4/5',
+      ratingLink: 'https://www.google.com/search?sca_esv=7d0b40d4ccf1baac&sxsrf=AE3TifPGECsprGp3_PvNU7YT1JY3ki8_lg:1754439048381&q=marjon+golf+course&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s66HmVztU-bLS7T28Le65YOxdLrdiT1iOOB-IWeVd79hILrnQyp3lSnpacawn_N89-A7VW3gwUn0m8O9Ilj7GLzvnwu78S4KE1exS0Vntfyb7FhXBg%3D%3D&sa=X&ved=2ahUKEwix5Iji8vSOAxVPEVkFHd_CB0AQrrQLegQIHBAA',
+      address: '1360 Griffin Rd, Roaring Brook Township, PA 18444',
+      town: 'Roaring Brook Twp',
+      GeneralNotes: '9 Hole Course',
+      website: 'https://www.facebook.com/profile.php?id=100066500558894#',
+      phoneNumber: '(570) 842-7922',
+      googlePlaceId: 'ChIJL8KOWE7DxIkRYgZaat0wDQM',
+      courseLength: '2691 yards'
+    },
   ];
   
   

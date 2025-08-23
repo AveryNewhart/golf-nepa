@@ -53,35 +53,14 @@ const {
       courseLength: '6060 yards'
     },
     {
-        //NEED TO GET PINECROFT RATE INFO STILL !!!!!!!!! 
-
-
       id: 'pinecroft-golf-course',
       name: 'Pinecroft Golf Course',
-      image: '/imgs/pinecroftLogo.png',
+      image: '/imgs/pinecroftLogo.jpg',
       rating: '4.4/5',
       ratingLink: 'https://www.google.com/search?sca_esv=41771b6d1dd3ed98&sxsrf=AE3TifO9LXNDUI87rLaey7FKnjnrwemBSw:1754244486694&q=pinecroft+golf+course+pa&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s5qkUtALc0_lODGYbipxiYIp7riyXg06dZC6p-do2rhk-XOWz5PgMLtEzYWoh7Qt5b8pCd4jV9Rau1e7aIMvYAOFtSFaaJamCYpXwFaN_ZBs1yIaoA%3D%3D&sa=X&ved=2ahUKEwja9On7ne-OAxWDEFkFHdLGJB0QrrQLegQIHRAA',
       address: '2551 Centerville Rd, Gillett, PA 16925',
       town: 'Gillett',
-      holes9: {
-        weekday: {
-          General: { walking: '$20', cart: '$28', notes: 'All Day' }
-        },
-        weekend: {
-          General: { walking: '$26', cart: '$34', notes: 'All Day' },
-        },
-      },
-      holes18: {
-          weekday: {
-          General: { walking: '$28', cart: '$38', notes: 'Open-3pm' },
-          Twilight: { cart: '$28', notes: 'After 3pm'  }
-        },
-        weekend: {
-          General: { walking: '$32', cart: '$46', notes: 'Open-3pm' },
-          Twilight: { cart: '$36', notes: 'After 3pm'  }
-        },
-      },
-      GeneralNotes: '9 Hole Course',
+      GeneralNotes: 'For Tee Times & Daily Rates Call the Clubhouse',
       website: 'https://www.facebook.com/people/Pinecroft-Golf-Course/100063524350593/#',
       phoneNumber: '(570) 596-4653',
       googlePlaceId: 'ChIJIzcdADwwxYkRbUk1_n3H0JY',

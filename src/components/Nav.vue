@@ -55,6 +55,7 @@ watch(showMap, (visible) => {
   }
 })
 
+
 onMounted(() => {
   imageMapResize()
 })

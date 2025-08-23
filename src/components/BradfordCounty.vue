@@ -58,7 +58,7 @@ const {
 
       id: 'pinecroft-golf-course',
       name: 'Pinecroft Golf Course',
-      image: '/imgs/shadowbrookLogo.png',
+      image: '/imgs/pinecroftLogo.png',
       rating: '4.4/5',
       ratingLink: 'https://www.google.com/search?sca_esv=41771b6d1dd3ed98&sxsrf=AE3TifO9LXNDUI87rLaey7FKnjnrwemBSw:1754244486694&q=pinecroft+golf+course+pa&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s5qkUtALc0_lODGYbipxiYIp7riyXg06dZC6p-do2rhk-XOWz5PgMLtEzYWoh7Qt5b8pCd4jV9Rau1e7aIMvYAOFtSFaaJamCYpXwFaN_ZBs1yIaoA%3D%3D&sa=X&ved=2ahUKEwja9On7ne-OAxWDEFkFHdLGJB0QrrQLegQIHRAA',
       address: '2551 Centerville Rd, Gillett, PA 16925',
@@ -70,10 +70,6 @@ const {
         weekend: {
           General: { walking: '$26', cart: '$34', notes: 'All Day' },
         },
-        senior: {
-          weekday: { walking: '$18', cart: '$26', notes: 'After 10am' },
-          weekend: { walking: '$24', cart: '$30', notes: 'After 2pm' }
-        },
       },
       holes18: {
           weekday: {
@@ -84,20 +80,12 @@ const {
           General: { walking: '$32', cart: '$46', notes: 'Open-3pm' },
           Twilight: { cart: '$36', notes: 'After 3pm'  }
         },
-        senior: {
-          weekday: { walking: '$24', cart: '$34', notes: 'All Day' },
-          weekend: { walking: '$30', cart: '$42', notes: 'All Day' }
-        },
-        junior: {
-          weekday: { walking: '$24', cart: '$44', notes: 'After 10am' },
-          weekend: { walking: '$24', cart: '$44', notes: 'After 2pm' }
-        },
       },
-      GeneralNotes: 'Senior is 60+ | Junior is 16 & Under',
-      website: 'https://shadowbrookresort.com/',
+      GeneralNotes: '9 Hole Course',
+      website: 'https://www.facebook.com/people/Pinecroft-Golf-Course/100063524350593/#',
       phoneNumber: '(570) 596-4653',
       googlePlaceId: 'ChIJIzcdADwwxYkRbUk1_n3H0JY',
-      courseLength: '6033 yards'
+      courseLength: '2778 yards'
     },
   ];
   

@@ -1,194 +1,93 @@
 <script setup lang="ts">
-// import { ref, onMounted, watch } from 'vue'
-// import imageMapResize from 'image-map-resizer'
+import { ref, onMounted, watch } from 'vue'
+// @ts-ignore
+import imageMapResize from 'image-map-resizer'
 
-// const emit = defineEmits<{
-//   (e: 'switch-view', view: 'lancaster' | 'york' | 'chester' | 'montgomery' | 'berks' | 'lebanon' | 'dauphin' | 'philadelphia' | 'lehigh' | 'northampton' | 'delaware' | 'bucks' | 'perry' | 'cumberland' | 'adams' | 'franklin'): void
-// }>()
+// Define the type for the new list of counties
+type CountyView = 'bradford' | 'susquehanna' | 'wayne' | 'sullivan' | 'wyoming' | 'lackawanna' | 'pike' | 'luzerne' | 'monroe' | 'carbon' | 'schuylkill';
 
-// const currentView = ref<'lancaster' | 'york' | 'chester' | 'montgomery' | 'berks' | 'lebanon' | 'dauphin' | 'philadelphia' | 'lehigh' | 'northampton' | 'delaware' | 'bucks' | 'perry' | 'cumberland' | 'adams' | 'franklin'>('lancaster')
-// const fading = ref(false)
-// const showMap = ref(true)
+const emit = defineEmits<{
+  (e: 'switch-view', view: CountyView): void
+}>()
 
-// const setView = (view: typeof currentView.value) => {
-//   if (currentView.value !== view) {
-//     fading.value = true
-//     setTimeout(() => {
-//       currentView.value = view
-//       emit('switch-view', view)
-//       fading.value = false
-//       showMap.value = false
-//     }, 300)
-//   }
-// }
+// Set the initial view to the first county in your list
+const currentView = ref<CountyView>('wyoming')
+const fading = ref(false)
+const showMap = ref(true)
 
-// const openMap = () => {
-//   showMap.value = true
-// }
+const setView = (view: CountyView) => {
+  if (currentView.value !== view) {
+    fading.value = true
+    setTimeout(() => {
+      currentView.value = view
+      emit('switch-view', view)
+      fading.value = false
+      showMap.value = false // This will hide the map and show the 'View Map' button
+    }, 300)
+  }
+}
 
-// onMounted(() => {
-//   imageMapResize()
-// })
+const openMap = () => {
+  showMap.value = true
+}
 
-// watch(showMap, (visible) => {
-//   if (visible) {
-//     setTimeout(() => {
-//       imageMapResize()
-//     }, 0)
-//   }
-// })
+// Ensure the image map is responsive
+onMounted(() => {
+  imageMapResize()
+})
+
+watch(showMap, (visible) => {
+  if (visible) {
+    setTimeout(() => {
+      imageMapResize()
+    }, 0)
+  }
+})
 </script>
 
 <template>
   <nav>
-    <!-- <div class="mx-auto p-5">
+    <div class="mx-auto p-5">
       <h1
         class="text-center text-white text-3xl font-semibold mb-6 transition-opacity duration-300"
         :class="{ 'opacity-0': fading, 'opacity-100': !fading }"
       >
         Public Golf Courses In {{
-          currentView === 'lancaster' ? 'Lancaster' :
-          currentView === 'york' ? 'York' :
-          currentView === 'chester' ? 'Chester' :
-          currentView === 'montgomery' ? 'Montgomery' :
-          currentView === 'berks' ? 'Berks' :
-          currentView === 'lebanon' ? 'Lebanon' :
-          currentView === 'dauphin' ? 'Dauphin' :
-          currentView === 'philadelphia' ? 'Philadelphia' :
-          currentView === 'lehigh' ? 'Lehigh' :
-          currentView === 'northampton' ? 'Northampton' :
-          currentView === 'delaware' ? 'Delaware' :
-          currentView === 'bucks' ? 'Bucks' :
-          currentView === 'perry' ? 'Perry' :
-          currentView === 'cumberland' ? 'Cumberland' :
-          currentView === 'adams' ? 'Adams' : 'Franklin'
+          currentView === 'wyoming' ? 'Wyoming' :
+          currentView === 'bradford' ? 'Bradford' :
+          currentView === 'susquehanna' ? 'Susquehanna' :
+          currentView === 'wayne' ? 'Wayne' :
+          currentView === 'sullivan' ? 'Sullivan' :
+          currentView === 'lackawanna' ? 'Lackawanna' :
+          currentView === 'pike' ? 'Pike' :
+          currentView === 'luzerne' ? 'Luzerne' :
+          currentView === 'monroe' ? 'Monroe' :
+          currentView === 'carbon' ? 'Carbon' : 'Schuylkill'
         }} County
       </h1>
 
       <div class="county-map-container relative">
         <template v-if="showMap">
           <img
-            src="/imgs/southerncountiesmapp.png"
-            usemap="#county-map"
-            alt="County Map"
-            class="w-full max-w-4xl mx-auto rounded-lg transition-filter duration-300"
-            :style="{ filter: `var(--map-filter, '')` }" />
+            src="/imgs/NepaBlackBordersFinal.png"
+            usemap="#image-map"
+            alt="NEPA County Map"
+            class="w-full max-w-4xl mx-auto rounded-lg" />
           <p class="text-white text-md mt-2 mb-4 italic">
             Click a county to view their public golf courses
           </p>
-          <map name="county-map">
-            <area
-              shape="poly"
-              coords="547,454,759,664,551,662,481,507"
-              @click="setView('york')"
-              alt="York"
-              title="York County"
-            />
-            <area
-              shape="poly"
-              coords="804,661,885,465,801,409,640,463"
-              @click="setView('lancaster')"
-              alt="Lancaster"
-              title="Lancaster County"
-            />
-            <area
-              shape="poly"
-              coords="902,490,875,656,959,649,1075,505,992,431"
-              @click="setView('chester')"
-              alt="Chester"
-              title="Chester County"
-            />
-            <area
-              shape="poly"
-              coords="1046,340,1014,398,1142,490,1192,437"
-              @click="setView('montgomery')"
-              alt="Montgomery"
-              title="Montgomery County"
-            />
-            <area
-              shape="poly"
-              coords="759,317,915,444,1001,310,903,231"
-              @click="setView('berks')"
-              alt="Berks"
-              title="Berks County"
-            />
-            <area
-              shape="poly"
-              coords="631,320,668,415,762,375,670,292"
-              @click="setView('lebanon')"
-              alt="Lebanon"
-              title="Lebanon County"
-            />
-            <area
-              shape="poly"
-              coords="519,263,520,348,584,444,625,430,589,239"
-              @click="setView('dauphin')"
-              alt="Dauphin"
-              title="Dauphin County"
-            />
-            <area
-              shape="poly"
-              coords="1159,539,1177,566,1234,502,1233,476"
-              @click="setView('philadelphia')"
-              alt="Philadelphia"
-              title="Philadelphia County"
-            />
-            <area
-              shape="poly"
-              coords="931,205,1049,291,1080,257,996,172"
-              @click="setView('lehigh')"
-              alt="Lehigh"
-              title="Lehigh County"
-            />
-            <area
-              shape="poly"
-              coords="1033,154,1116,239,1146,215,1145,160,1175,83,1150,93"
-              @click="setView('northampton')"
-              alt="Northampton"
-              title="Northampton County"
-            />
-            <area
-              shape="poly"
-              coords="1048,596,1150,589,1112,516"
-              @click="setView('delaware')"
-              alt="Delaware"
-              title="Delaware County"
-            />
-            <area
-              shape="poly"
-              coords="1093,326,1280,474,1320,439,1164,259"
-              @click="setView('bucks')"
-              alt="Bucks"
-              title="Bucks County"
-            />
-            <area
-              shape="poly"
-              coords="254,393,268,434,463,380,476,262"
-              @click="setView('perry')"
-              alt="Perry"
-              title="Perry County"
-            />
-            <area
-              shape="poly"
-              coords="293,455,319,534,520,434,510,401"
-              @click="setView('cumberland')"
-              alt="Cumberland"
-              title="Cumberland County"
-            />
-            <area
-              shape="poly"
-              coords="323,570,334,669,481,665,469,532"
-              @click="setView('adams')"
-              alt="Adams"
-              title="Adams County"
-            />
-            <area
-              shape="poly"
-              coords="225,434,111,664,303,669,287,549"
-              @click="setView('franklin')"
-              alt="Franklin"
-              title="Franklin County"
-            />
+          <map name="image-map">
+            <area @click="setView('wyoming')" alt="WyomingCounty" title="WyomingCounty" coords="355,274,313,329,293,411,395,411,478,389,493,367,494,343,491,325,518,276" shape="poly">
+            <area @click="setView('bradford')" alt="BradfordCounty" title="BradfordCounty" coords="26,80,37,289,297,319,338,261,322,80" shape="poly">
+            <area @click="setView('susquehanna')" alt="SusquehannaCounty" title="SusquehannaCounty" coords="343,82,355,257,645,257,634,74" shape="poly">
+            <area @click="setView('wayne')" alt="WayneCounty" title="WayneCounty" coords="651,70,679,471,705,472,820,271,786,159" shape="poly">
+            <area @click="setView('sullivan')" alt="SullivanCounty" title="SullivanCounty" coords="65,315,84,395,155,449,213,461,253,449,267,448,294,338" shape="poly">
+            <area @click="setView('lackawanna')" alt="LackawannaCounty" title="LackawannaCounty" coords="536,274,510,328,515,351,513,365,495,392,507,407,545,428,562,444,572,472,576,493,576,520,591,529,659,469,648,277" shape="poly">
+            <area @click="setView('pike')" alt="PikeCounty" title="PikeCounty" coords="917,467,929,427,977,394,941,376,821,320,736,466,823,463,813,517,864,549,903,516" shape="poly">
+            <area @click="setView('luzerne')" alt="LuzerneCounty" title="LuzerneCounty" coords="290,435,283,513,327,640,414,661,515,608,507,578,562,541,552,466,480,410" shape="poly">
+            <area @click="setView('monroe')" alt="MonroeCounty" title="MonroeCounty" coords="851,565,789,529,798,482,649,497,590,562,650,625,626,650,626,655,626,650,660,713,729,675,811,625,847,580" shape-="poly">
+            <area @click="setView('carbon')" alt="CarbonCounty" title="CarbonCounty" coords="430,670,537,761,575,740,644,718,606,659,602,650,626,632,590,585,560,563,555,601,505,638,571,595,545,567,532,616" shape="poly">
+            <area @click="setView('schuylkill')" alt="SchuylkillCounty" title="SchuylkillCounty" coords="131,820,238,902,267,909,408,860,413,839,518,775,414,676,325,657,301,693,294,737" shape="poly">
           </map>
         </template>
 
@@ -201,18 +100,19 @@
           </button>
         </template>
       </div>
-    </div> -->
+    </div>
   </nav>
 </template>
 
 <style scoped>
 nav {
-  background-color: var(--color-nav-bg);
+  /* background-color: var(--color-nav-bg); You can set your desired background color here */
   border-bottom: 2px solid white;
 }
 .county-map-container {
   text-align: center;
 }
+/* Makes the clickable areas show a pointer on hover */
 area {
   cursor: pointer;
 }
